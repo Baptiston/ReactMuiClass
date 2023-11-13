@@ -3,12 +3,12 @@ import { ChildrenProps } from '../../helpers';
 import { useDrawerContext } from '../../contexts';
 import { ListItemLink } from './ListItemLink';
 
-export const SideMenu: React.FC<ChildrenProps> = () => {
+export const SideMenu: React.FC<ChildrenProps> = ({children}) => {
 
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   return (
     <>
@@ -19,17 +19,24 @@ export const SideMenu: React.FC<ChildrenProps> = () => {
           </Box>
         </Box>
 
-        <Divider/>
+        <Divider />
 
         <Box flex={1}>
           <List component="nav">
-            <ListItemLink icon='Home' primary='Página Inicial'/>
+            {drawerOptions.map(drawerOptions =>(
+              <ListItemLink 
+                key={drawerOptions.path}
+                icon={drawerOptions.icon}
+                label={drawerOptions.label} 
+                to={drawerOptions.path}
+                onClick={smDown ? toggleDrawerOpen : undefined}/>
+            ))}
           </List>
         </Box>
       </Drawer>
 
-      <Box height='100vh' id='box-zuado' marginLeft={smDown ? 0 : theme.spacing(28)}>
-        teste
+      <Box height='100vh' marginLeft={smDown ? 0 : theme.spacing(28)}>
+        {children}
       </Box>
     </>
   );
