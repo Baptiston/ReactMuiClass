@@ -1,6 +1,6 @@
-import { Avatar, Box, Divider, Drawer, List, useMediaQuery, useTheme } from '@mui/material';
+import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import { ChildrenProps } from '../../helpers';
-import { useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { ListItemLink } from './ListItemLink';
 
 export const SideMenu: React.FC<ChildrenProps> = ({children}) => {
@@ -9,6 +9,7 @@ export const SideMenu: React.FC<ChildrenProps> = ({children}) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <>
@@ -31,6 +32,16 @@ export const SideMenu: React.FC<ChildrenProps> = ({children}) => {
                 to={drawerOptions.path}
                 onClick={smDown ? toggleDrawerOpen : undefined}/>
             ))}
+          </List>
+        </Box>
+        <Box>
+          <List component="nav">
+            <ListItemButton onClick={toggleTheme}>
+              <ListItemIcon>
+                <Icon>dark_mode</Icon>
+              </ListItemIcon>
+              <ListItemText primary='Alternar Tema' />
+            </ListItemButton>
           </List>
         </Box>
       </Drawer>
