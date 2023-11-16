@@ -4,6 +4,8 @@ import { ISplitButtonProps, SplitButton } from '../split-button/SplitButton';
 
 interface IDetailToolProps{
   buttonNewText?: string
+  buttonSaveAndCloseText?: string
+
   showNewButton?: boolean
   showBackButton?: boolean
   showDeleteButton?: boolean
@@ -12,7 +14,7 @@ interface IDetailToolProps{
   showDropdownButton?:boolean
 
   showSaveButtonLoading?: boolean
-  showBackButtonLoading?: boolean
+  showReturnButtonLoading?: boolean
   showDeleteButtonLoading?: boolean
   showNewButtonLoading?: boolean
   showSaveAndCloseLoading?: boolean
@@ -27,6 +29,7 @@ interface IDetailToolProps{
 
 export const DetailTool: React.FC<IDetailToolProps> = ({
   buttonNewText = 'Novo',
+  buttonSaveAndCloseText= 'Salvar e Fechar',
 
   showNewButton = true,
   showBackButton = true,
@@ -35,7 +38,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
   showSaveAndCloseButton = false,
 
   showSaveButtonLoading = false,
-  showBackButtonLoading = false,
+  showReturnButtonLoading = false,
   showDeleteButtonLoading = false,
   showNewButtonLoading = false,
   showSaveAndCloseLoading = false,
@@ -55,7 +58,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
 
   const splitButtonList : ISplitButtonProps[] = [
     {label: 'Salvar', onClick: onClickInSave}, 
-    {label: 'Salvar e Voltar', onClick: onClickInSaveAndClose},
+    {label: buttonSaveAndCloseText, onClick: onClickInSaveAndClose},
     {label: 'Apagar', onClick: onClickInDelete},
     {label: buttonNewText, onClick: onClickInNew},
     {label: 'Voltar', onClick: onClickInBack}];
@@ -95,7 +98,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
         onClick={onClickInSaveAndClose}
       >
         <Typography variant='button' whiteSpace='nowrap' textOverflow='ellipsis' overflow='hidden'>
-          Salvar e Voltar
+          {buttonSaveAndCloseText}
         </Typography>
       </Button>)}
 
@@ -140,7 +143,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
           showDeleteButton || showNewButton || showSaveButton || showSaveAndCloseButton) 
             && (<Divider variant='middle' orientation='vertical'/>)}
 
-      {(showBackButton && !xsDown && !showBackButtonLoading) && (<Button
+      {(showBackButton && !xsDown && !showReturnButtonLoading) && (<Button
         color='primary'
         disableElevation
         variant='outlined'
@@ -152,7 +155,7 @@ export const DetailTool: React.FC<IDetailToolProps> = ({
         </Typography>
       </Button>)}
 
-      {showBackButtonLoading && !xsDown && (
+      {showReturnButtonLoading && !xsDown && (
         <Skeleton width={110} height={60}/>)
       }
 

@@ -2,8 +2,9 @@
   "pessoas": [
     {
       "id": 1,
-      "nome": "Felipe",
-      "sobrenome":"Souza"
+      "nomeCompleto": "Felipe Baptiston de Souza",
+      "email": "felipesouza@coamo.com.br",
+      "cidadeId":1
     }
   ]
 }
