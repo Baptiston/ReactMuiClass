@@ -7,7 +7,7 @@ interface IBaseLayoutPagesProps {
   children: React.ReactNode;
 }
 
-export const BaseLayoutPage: React.FC<IBaseLayoutPagesProps> = ({title, children, toolBar}) => {
+export const BaseLayoutPage: React.FC<IBaseLayoutPagesProps> = ({title, toolBar, children}) => {
   
   const theme = useTheme();
 
