@@ -62,7 +62,8 @@ export const PersonList: React.FC<ChildrenProps> = () => {
       title="Listagem de Pessoas"
       toolBar={
         <ToolList
-          newButtonText={'Novo'}
+          newButtonText={'Nova'}
+          onClickNewButton={() => navigate('/pessoas/detalhe/nova')}
           showSearchInput
           searchText={searchParams.get('busca') ?? ''}
           atSearchTextChange={text => SetSearchParams({search:text, page:'1'}, {replace: true})}
