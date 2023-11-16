@@ -1,21 +1,21 @@
 import { Environment } from '../../../environment';
 import { Api } from '../axios-config/index';
 
-interface IListPerson{
+export interface IListPerson{
   id: number
   nomeCompleto:string
   email:string
   cidadeId:number
 }
 
-interface IDetailPerson{
+export interface IDetailPerson{
   id: number
   nomeCompleto:string
   email:string
   cidadeId:number
 }
 
-type TTotalCountPerson = {
+export type TTotalCountPerson = {
   data:IListPerson[]
   totalCount: number
 }

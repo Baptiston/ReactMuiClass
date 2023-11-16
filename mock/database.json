@@ -5,6 +5,18 @@
       "nomeCompleto": "Felipe Baptiston de Souza",
       "email": "felipesouza@coamo.com.br",
       "cidadeId":1
+    },
+    {
+      "id": 2,
+      "nomeCompleto": "Murilo Matos",
+      "email": "murilomatos@gmail.com",
+      "cidadeId":1
+    },
+    {
+      "id": 3,
+      "nomeCompleto": "Rafael damião",
+      "email": "rafel@gmail.com",
+      "cidadeId":1
     }
   ]
 }
